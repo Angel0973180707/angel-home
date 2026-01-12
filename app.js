@@ -81,7 +81,7 @@
     pinnedGrid.innerHTML = pinned.map(cardHTML).join("") || `<div class="card"><p class="small">（目前沒有置頂內容）</p></div>`;
 
     const list = items
-      .filter(x => !pinnedIds.includes(x.id)) // pinned 已在上面
+      .filter(x => !pinnedIds.includes(x.id))
       .filter(itemMatches);
 
     listGrid.innerHTML = list.map(cardHTML).join("");
@@ -131,7 +131,6 @@
       await navigator.clipboard.writeText(text);
       return true;
     }catch(e){
-      // fallback
       const ta = document.createElement("textarea");
       ta.value = text;
       document.body.appendChild(ta);
@@ -213,7 +212,6 @@
       });
     }
 
-    // related
     if(relatedGrid){
       const pinnedIds = state.data.pinned_ids || [];
       const related = items
@@ -226,11 +224,75 @@
     }
   }
 
+  /* =========================
+     音景控制：夜鳥/海浪/雨聲
+     - 一次只播一種
+     - 不記錄、不綁住
+     ========================= */
+  function bindSoundDock(){
+    const buttons = $$(".soundbtn");
+    if(buttons.length === 0) return;
+
+    const audios = {
+      night: $("#sound-night"),
+      ocean: $("#sound-ocean"),
+      rain: $("#sound-rain")
+    };
+
+    function stopAll(){
+      Object.values(audios).forEach(a => {
+        if(!a) return;
+        a.pause();
+        a.currentTime = 0;
+      });
+      buttons.forEach(b => {
+        b.classList.remove("is-on");
+        b.setAttribute("aria-pressed", "false");
+      });
+    }
+
+    async function toggle(key, btn){
+      const a = audios[key];
+      if(!a) return;
+
+      const isOn = btn.classList.contains("is-on");
+      if(isOn){
+        stopAll();
+        return;
+      }
+
+      stopAll();
+      try{
+        await a.play(); // 需要使用者點擊才可播放（瀏覽器規則）
+        btn.classList.add("is-on");
+        btn.setAttribute("aria-pressed", "true");
+      }catch(e){
+        // 若音檔路徑不存在或瀏覽器阻擋，保持安靜即可
+        stopAll();
+        alert("播放失敗：請確認音檔已上傳到 assets/audio/，且檔名正確。");
+      }
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.sound;
+        toggle(key, btn);
+      });
+    });
+
+    // 轉頁/離開時停止（不綁住）
+    window.addEventListener("pagehide", stopAll);
+    window.addEventListener("beforeunload", stopAll);
+  }
+
   async function load(){
     try{
       const res = await fetch("./tools.json", { cache: "no-store" });
       const data = await res.json();
       state.data = data;
+
+      // 音景
+      bindSoundDock();
 
       // index page
       if($("#listGrid")){
