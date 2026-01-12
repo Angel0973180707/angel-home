@@ -1,229 +1,174 @@
-/* =========================
-   Angel-home｜晨曦米色主題
-   不被綁住，是價值之一
-   ========================= */
-
 :root{
-  --bg-main: #f6f2ea;      /* 主米色 */
-  --bg-soft: #fbf8f2;      /* 更淡的米白 */
-  --bg-glow: #fff1d6;      /* 晨光暖 */
-  --bg-sky:  #e9f0f4;      /* 清晨天空感 */
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Heiti TC", Arial, sans-serif;
 
-  --card-bg: rgba(255,255,255,0.85);
-  --card-border: rgba(120,110,90,0.12);
+  /* 晨曦藍＋偏米（質感霧面） */
+  --bgTop: #eaf3ff;     /* 亮晨曦藍 */
+  --bgMid: #d7e9ff;     /* 藍霧 */
+  --bgWarm:#fff3e2;     /* 米光 */
+  --bgDeep:#bcd8ff;     /* 底部帶一點藍 */
+  --ink:   #0f1a2b;
+  --muted: rgba(15,26,43,.62);
 
-  --text-main: #3f3a32;
-  --text-soft: #6f675c;
-  --text-mute: #9a9286;
+  /* 卡片霧玻璃質感 */
+  --card: rgba(255,255,255,.62);
+  --card2: rgba(255,255,255,.46);
+  --line: rgba(15,26,43,.10);
+  --shadow: 0 18px 44px rgba(15,26,43,.10);
 
-  --accent: #d8b56a;
+  /* 主色（藍） */
+  --accent: #2f6fde;
+  --accent2:#6aa6ff;
 
-  --radius-lg: 20px;
-  --radius-md: 14px;
-
-  --shadow-soft: 0 10px 30px rgba(120,110,90,0.12);
+  --radius: 22px;
+  --max: 980px;
 }
 
-/* ---------- 全站基礎 ---------- */
-*{
-  box-sizing: border-box;
-}
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
 
 body{
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto,
-               "Noto Sans TC", "PingFang TC",
-               "Helvetica Neue", Arial, sans-serif;
+  margin:0;
+  font-family: var(--font);
+  color: var(--ink);
 
-  color: var(--text-main);
-
-  /* 🌅 晨曦背景 */
+  /* 有質感的晨曦背景：藍霧 + 米光 + 柔暗角 */
   background:
-    radial-gradient(
-      1200px 600px at 50% -10%,
-      var(--bg-glow),
-      transparent 55%
-    ),
-    radial-gradient(
-      900px 600px at 90% 10%,
-      var(--bg-sky),
-      transparent 55%
-    ),
-    linear-gradient(
-      180deg,
-      var(--bg-soft),
-      var(--bg-main)
-    );
-
-  min-height: 100vh;
+    radial-gradient(1100px 520px at 15% -10%, rgba(106,166,255,.38), transparent 60%),
+    radial-gradient(900px 520px at 85% 0%, rgba(255,243,226,.80), transparent 62%),
+    radial-gradient(900px 560px at 50% 110%, rgba(188,216,255,.55), transparent 60%),
+    linear-gradient(180deg, var(--bgTop), var(--bgMid) 45%, var(--bgWarm) 78%, var(--bgDeep));
 }
 
-/* 連結不做存在感 */
-a{
-  color: inherit;
-  text-decoration: none;
-}
+a{ color: inherit; text-decoration:none; }
 
-/* ---------- 主容器 ---------- */
 .wrap{
-  width: min(920px, calc(100% - 32px));
+  width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 0 64px;
+  padding: 18px 0 28px;
 }
 
-/* ---------- Header ---------- */
-header{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+/* ===== 頂部品牌列（左上角白鴿 + Angel-Home） ===== */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding: 10px 0 14px;
 }
 
-.logo{
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    #ffffff,
-    #efe7d6
-  );
-  box-shadow: var(--shadow-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width: 0;
+}
+
+.brand__logo{
+  width:48px;
+  height:48px;
+  border-radius: 18px;
+
+  /* 白鴿底：藍霧帶一點米光 */
+  background:
+    radial-gradient(28px 28px at 25% 20%, rgba(255,255,255,.95), transparent 60%),
+    linear-gradient(180deg, rgba(106,166,255,.55), rgba(47,111,222,.55));
+  box-shadow: 0 14px 30px rgba(47,111,222,.18);
+  border: 1px solid rgba(255,255,255,.55);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex: 0 0 auto;
+}
+
+.brand__logo .dove{
+  width:26px;
+  height:26px;
+  color:#ffffff;
+  transform: translateY(-1px);
+}
+
+.brand__title{
+  font-weight: 800;
+  letter-spacing: .2px;
   font-size: 22px;
-}
-
-.site-title{
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.site-sub{
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  margin-top: 2px;
-}
-
-/* ---------- 宣言卡 ---------- */
-.manifesto{
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
-  padding: 16px 18px;
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 24px;
-}
-
-.manifesto-title{
-  font-size: 0.85rem;
-  color: var(--text-mute);
-  margin-bottom: 6px;
-}
-
-.manifesto-text{
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* ---------- 分類切換 ---------- */
-.tabs{
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  margin-bottom: 24px;
-}
-
-.tab{
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.7);
-  border: 1px solid var(--card-border);
-  font-size: 0.85rem;
-  color: var(--text-soft);
+  line-height: 1.1;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.tab.active{
-  background: #fff;
-  color: var(--text-main);
-  box-shadow: var(--shadow-soft);
-}
+/* （你說想留白不加引導語，所以這裡不強制放副標） */
+.brand__subtitle{ display:none; }
 
-/* ---------- 區塊標題 ---------- */
-.section-title{
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 28px 0 8px;
-}
-
-.section-desc{
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  margin-bottom: 16px;
-}
-
-/* ---------- 卡片 ---------- */
+/* ===== 霧面卡片（給你現在的卡片/區塊通用） ===== */
 .card{
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
-  padding: 16px 18px;
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 16px;
+  background: linear-gradient(180deg, var(--card), var(--card2));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.card-title{
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
+.card.pad{ padding: 16px; }
 
-.card-desc{
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  line-height: 1.6;
+/* ===== 分類按鈕/膠囊（如果你現在用的是 chips / tabs 類） ===== */
+.chips{
+  display:flex;
+  gap:10px;
+  overflow:auto;
+  padding: 6px 2px 10px;
+  -webkit-overflow-scrolling: touch;
 }
-
-/* ---------- 標籤 ---------- */
-.tags{
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.tag{
-  font-size: 0.75rem;
-  padding: 4px 10px;
+.chip{
+  flex: 0 0 auto;
+  padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(216,181,106,0.18);
-  color: #7a6430;
+  border: 1px solid rgba(15,26,43,.14);
+  background: rgba(255,255,255,.55);
+  color: rgba(15,26,43,.78);
+  box-shadow: 0 12px 26px rgba(15,26,43,.08);
+}
+.chip.active{
+  border-color: rgba(47,111,222,.28);
+  background: linear-gradient(180deg, rgba(47,111,222,.16), rgba(255,255,255,.55));
+  color: rgba(15,26,43,.92);
 }
 
-/* ---------- 工具聲音按鈕 ---------- */
+/* ===== 右下角音效按鈕（你目前那組：夜鳥/海浪/雨聲）更柔和 ===== */
+.sounddock{
+  position: fixed;
+  right: 14px;
+  bottom: 16px;
+  z-index: 999;
+  display:flex;
+  gap:10px;
+  padding: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.58);
+  border: 1px solid rgba(15,26,43,.12);
+  box-shadow: 0 18px 44px rgba(15,26,43,.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 .soundbtn{
-  appearance: none;
-  border: 1px solid var(--card-border);
-  background: rgba(255,255,255,0.8);
+  padding: 10px 14px;
   border-radius: 999px;
-  padding: 10px 18px;
-  font-size: 0.9rem;
-  color: var(--text-main);
-  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15,26,43,.14);
+  background: rgba(255,255,255,.50);
+  color: rgba(15,26,43,.78);
 }
 
-.soundbtn:active{
-  transform: scale(0.97);
+.soundbtn.is-on{
+  border-color: rgba(47,111,222,.32);
+  background: linear-gradient(180deg, rgba(47,111,222,.18), rgba(255,255,255,.55));
+  color: rgba(15,26,43,.92);
 }
 
-/* ---------- Footer 空氣 ---------- */
-footer{
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--text-mute);
-  margin-top: 48px;
+/* 小螢幕微調 */
+@media (max-width: 420px){
+  .brand__title{ font-size: 20px; }
+  .wrap{ width: calc(100% - 24px); }
 }
