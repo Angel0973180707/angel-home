@@ -1,0 +1,69 @@
+{
+  "site": {
+    "name": "angel-home",
+    "tagline": "回來一下就好。你不用被要求留下。"
+  },
+  "pinned_ids": ["a-breath", "a-now", "p-moneybrake"],
+  "items": [
+    {
+      "id": "a-breath",
+      "series": "angel",
+      "type": "tool",
+      "title": "Angel｜回到呼吸",
+      "desc": "太亂了，先回身體。",
+      "tags": ["呼吸", "落地", "當下"],
+      "why": "因為很多時候，不是需要答案，是需要先把身體帶回來。",
+      "url": "https://example.com/angel-breath"
+    },
+    {
+      "id": "a-now",
+      "series": "angel",
+      "type": "tool",
+      "title": "Angel｜回來此刻",
+      "desc": "太飄了，先落地。",
+      "tags": ["當下", "覺察", "回來"],
+      "why": "我想保留一個入口：不用努力，只要回來。",
+      "url": "https://example.com/angel-now"
+    },
+    {
+      "id": "a-see",
+      "series": "angel",
+      "type": "tool",
+      "title": "Angel｜看見而已",
+      "desc": "不評價，只看見。",
+      "tags": ["覺察", "不評價"],
+      "why": "有些情緒，不需要解決，先被看見就會鬆一點。",
+      "url": "https://example.com/angel-see"
+    },
+    {
+      "id": "p-moneybrake",
+      "series": "parenting",
+      "type": "tool",
+      "title": "幸福教養｜零用錢練功房",
+      "desc": "用小錢練「踩煞車」，陪孩子長出選擇力。",
+      "tags": ["踩煞車", "前額葉", "自律"],
+      "why": "這不是管教，是把『等一下』練回來，讓關係少一點爆炸。",
+      "url": "https://example.com/money-brake"
+    },
+    {
+      "id": "pick-1",
+      "series": "angel",
+      "type": "pick",
+      "title": "精選分享｜一段我想留給你的影片",
+      "desc": "看完不必變更好，只要更願意呼吸一下。",
+      "tags": ["影片", "放鬆"],
+      "why": "我放它在這裡，是因為它讓我想起：可以慢慢來。",
+      "url": "https://example.com/video"
+    },
+    {
+      "id": "note-1",
+      "series": "parenting",
+      "type": "note",
+      "title": "創作日誌｜今天我學到：不急著解釋",
+      "desc": "我先站穩，事情才會慢慢變清楚。",
+      "tags": ["日誌", "站穩"],
+      "why": "只是留個痕跡。沒有要證明什麼。",
+      "url": "https://example.com/note"
+    }
+  ]
+}
