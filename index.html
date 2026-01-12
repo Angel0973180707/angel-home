@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>angel-home｜回來一下就好</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">A</div>
+        <div class="brand-text">
+          <h1>angel-home</h1>
+          <p class="subtitle">回來一下就好。你不用被要求留下。</p>
+        </div>
+      </div>
+
+      <div class="manifesto">
+        <p class="kicker">天使宣言（Angel Manifesto）</p>
+        <p class="quote">「不要被綁住，是價值之一。」</p>
+      </div>
+
+      <nav class="tabs" aria-label="系列切換">
+        <button class="tab is-active" data-series="all" type="button">全部</button>
+        <button class="tab" data-series="angel" type="button">Angel｜陪你回穩</button>
+        <button class="tab" data-series="parenting" type="button">幸福教養｜陪你在關係中站穩</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <section class="section">
+      <div class="section-head">
+        <h2>置頂推薦</h2>
+        <p class="muted">你可以只挑一張卡，回到當下就好。</p>
+      </div>
+      <div id="pinnedGrid" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>全部卡片</h2>
+        <p class="muted">工具 / 精選分享 / 創作日誌，都用同一套更新方式。</p>
+      </div>
+
+      <div class="toolbar" role="region" aria-label="篩選工具列">
+        <input id="q" class="input" type="search" placeholder="搜尋：標題 / tags / 一句話" autocomplete="off" />
+        <div class="chips" aria-label="類型篩選">
+          <button class="chip is-active" data-type="all" type="button">全部</button>
+          <button class="chip" data-type="tool" type="button">工具</button>
+          <button class="chip" data-type="pick" type="button">精選分享</button>
+          <button class="chip" data-type="note" type="button">創作日誌</button>
+        </div>
+      </div>
+
+      <div id="listGrid" class="grid" aria-live="polite"></div>
+      <p id="empty" class="empty hidden">目前沒有符合的卡片。</p>
+    </section>
+
+    <footer class="footer">
+      <p class="fine">
+        這裡不追蹤你、不催你、不要求互動。<br/>
+        你可以隨時回來，也可以隨時離開。
+      </p>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
