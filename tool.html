@@ -9,6 +9,25 @@
 </head>
 
 <body>
+  <!-- 右下角音景控制（工具頁也能用） -->
+  <section class="sounddock" aria-label="音景">
+    <div class="sounddock-inner">
+      <button class="soundbtn" data-sound="night" type="button" aria-pressed="false">夜鳥</button>
+      <button class="soundbtn" data-sound="ocean" type="button" aria-pressed="false">海浪</button>
+      <button class="soundbtn" data-sound="rain" type="button" aria-pressed="false">雨聲</button>
+    </div>
+  </section>
+
+  <audio id="sound-night" preload="none" loop>
+    <source src="./assets/audio/night-birds.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="sound-ocean" preload="none" loop>
+    <source src="./assets/audio/ocean-waves.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="sound-rain" preload="none" loop>
+    <source src="./assets/audio/rain.mp3" type="audio/mpeg">
+  </audio>
+
   <header class="top">
     <div class="wrap">
       <div class="backrow">
