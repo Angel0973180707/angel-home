@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>angel-home｜工具介紹</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div class="backrow">
+        <a class="back" href="./index.html">← 回到首頁</a>
+      </div>
+
+      <div class="brand mini">
+        <div class="logo" aria-hidden="true">A</div>
+        <div class="brand-text">
+          <h1 id="title">載入中…</h1>
+          <p id="subtitle" class="subtitle"> </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <article class="card detail">
+      <div class="meta">
+        <div class="badges" id="badges"></div>
+      </div>
+
+      <p id="desc" class="desc"></p>
+
+      <div class="whybox" id="whyBox">
+        <p class="kicker">我為什麼把它放在這裡</p>
+        <p id="why" class="why"></p>
+      </div>
+
+      <div class="actions">
+        <a id="go" class="btn" href="#" target="_blank" rel="noopener">前往內容 / 工具</a>
+        <button id="copy" class="btn ghost" type="button">複製連結</button>
+      </div>
+
+      <p class="fine hint">
+        你不用做完，也不用記錄。看一眼、用一下、就可以走。
+      </p>
+    </article>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>你可能也會需要</h2>
+        <p class="muted">同系列的其他卡片。</p>
+      </div>
+      <div id="relatedGrid" class="grid"></div>
+    </section>
+
+    <footer class="footer">
+      <p class="fine">angel-home｜不被綁住，也是一種照顧。</p>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
